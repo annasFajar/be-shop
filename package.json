@@ -4,7 +4,17 @@
   "main": "main.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon main.js",
+    "dev": "dotenv -e .env.local -- nodemon main.js", 
+    "start": "node main.js",
+    
+    "db:generate": "dotenv -e .env.local -- npx prisma generate",
+    "db:push": "dotenv -e .env.local -- npx prisma db push",
+    "db:migrate": "dotenv -e .env.local -- npx prisma migrate dev",
+    "db:studio": "dotenv -e .env.local -- npx prisma studio",
+
+    "db:reset": "dotenv -e .env.local -- npx prisma migrate reset --force",
+
+    "postinstall": "prisma generate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -21,6 +31,7 @@
     "nodemon": "^3.1.9"
   },
   "devDependencies": {
+    "dotenv-cli": "^8.0.0",
     "prisma": "^6.5.0"
   }
 }
