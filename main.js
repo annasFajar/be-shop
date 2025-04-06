@@ -19,7 +19,7 @@ app.use((req,res) => {
     res.status(404).send('url not found')
 })
 
-const port = process.env.PORT
+const port = process.env.PORT || 3000
 app.listen(port,() => {
     console.log('API running...' + port)
 })
