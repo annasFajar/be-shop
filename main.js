@@ -13,7 +13,7 @@ app.get('/', (req,res)=> {
     res.send('okkk')
 });
 
-// app.use('/users', profileController)
+app.use('/users', profileController)
 
 app.use((req,res) => {
     res.status(404).send('url not found')
